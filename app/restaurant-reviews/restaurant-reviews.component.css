@@ -1,0 +1,42 @@
+section, nav {
+  margin-left: 10px;
+}
+
+p {
+  color: #2c3e50;
+  font-weight: 100;
+}
+
+.no-reviews {
+  margin-left: 10px;
+}
+
+.reviews-header {
+  margin-left: 10px;
+}
+
+.rating-wrap-parent {
+  display: inline-block;
+}
+
+h2 {
+  margin: 0;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  color: #fff;
+  background-color: #2c3e50;
+  padding: 10px;
+  display:inline-block;
+  font-weight: 100;
+  letter-spacing: 5px;
+}
+
+.review {
+  width: 60%;
+  padding: 10px;
+  border: 3px solid #2c3e50;
+  margin-bottom: 20px;
+}
+
