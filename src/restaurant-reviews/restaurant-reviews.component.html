@@ -1,0 +1,70 @@
+<main>
+<header><h1 tabindex="0"> Reviews for <span *ngIf="restaurant">{{restaurant.name}}</span></h1></header>
+    <nav>
+      <a *ngIf="reviews && reviews.length > 0" class="button" title="create review for this restaurant" [routerLink]="['/create', restaurantId]">Create a review for restaurant</a>
+      <a class="button" title="go back to overview" [routerLink]="['/home']">Go back to overview of restaurants</a>
+    </nav>
+    <div *ngIf="reviews && reviews.length > 0">
+      <h2 class="reviews-header">Reviews</h2>
+    </div>
+
+    <div class="no-reviews" *ngIf="reviews && reviews.length == 0">
+      <p>No reviews yet : <a class="button" title="create review for this restaurant" [routerLink]="['/create', restaurantId]">Create a review for restaurant</a></p>
+    </div>
+
+    <section>
+      <article class="review" *ngFor="let review of reviews">
+        <h2>Review by: {{review.reviewer}} </h2>
+
+        <p>{{review.review}}</p>
+
+
+        <h2>Rating </h2>
+        <div *ngIf="restaurant" class="rating-wrap-parent" [attr.aria-label]="restaurant.name + ' has a ' + review.rating + ' star rating '">
+          <div class="rating-wrap" *ngIf="review.rating > 0">
+            <i class="rating-icon icon-star"></i>
+          </div>
+
+          <div class="rating-wrap" *ngIf="review.rating < 1">
+            <i class="rating-icon icon-star-o"></i>
+          </div>
+
+          <div class="rating-wrap" *ngIf="review.rating > 1">
+            <i class="rating-icon icon-star"></i>
+          </div>
+
+          <div class="rating-wrap" *ngIf="review.rating < 2">
+            <i class="rating-icon icon-star-o"></i>
+          </div>
+
+          <div class="rating-wrap" *ngIf="review.rating > 2">
+            <i class="rating-icon icon-star"></i>
+          </div>
+
+          <div class="rating-wrap" *ngIf="review.rating < 3">
+            <i class="rating-icon icon-star-o"></i>
+          </div>
+
+
+          <div class="rating-wrap" *ngIf="review.rating > 3">
+            <i class="rating-icon icon-star"></i>
+          </div>
+
+          <div class="rating-wrap" *ngIf="review.rating < 4">
+            <i class="rating-icon icon-star-o"></i>
+          </div>
+
+          <div class="rating-wrap" *ngIf="review.rating > 4">
+            <i class="rating-icon icon-star"></i>
+          </div>
+
+          <div class="rating-wrap" *ngIf="review.rating && review.rating < 5">
+            <i class="rating-icon icon-star-o"></i>
+          </div>
+        </div>
+      </article>
+    </section>
+</main>
+
+
+

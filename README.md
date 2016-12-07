@@ -13,8 +13,13 @@ npm install
 ```
 
 # Running
-To start the application, which compiles the typescript file and runs on a server
+To start the application, which compiles the typescript file and runs on a server (development build)
+
 ```sh
 npm run start
 ```
 
+To start a compiled production like version run (Note: building can take a while!)
+```sh
+start-production
+```
