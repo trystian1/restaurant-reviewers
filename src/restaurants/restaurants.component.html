@@ -1,0 +1,96 @@
+<main>
+  <header>
+    <i class="icon icon-cutlery"> </i><h1> Restaurants </h1>
+  </header>
+  <section class="filter-section">
+    <div class="filter-wrap">
+      <label class="filter-label">
+      Filter on name
+      <input class="filter-input" [(ngModel)]="filterOnName" placeholder="Search for a restaurant" />
+      </label>
+    </div>
+    <div class="filter-wrap">
+      <label class="filter-label">
+      Filter on cuisine
+      <select class="filter-input" [(ngModel)]="filterOnType">
+        <option value="" disabled selected>Select your cuisine</option>
+        <option value="Italian">Italian</option>
+        <option value="Fast Food">Fast Food</option>
+        <option value="Mexican">Mexican</option>
+        <option value="Indian">Indian</option>
+      </select>
+      </label>
+    </div>
+
+    <button class="button" [attr.aria-label]="'Reset the filter'" (click)="resetFilter()">Reset filters</button>
+  </section>
+  <section class="reviews-section">
+  <article class="restaurant-section" *ngFor="let restaurant of restaurants | restaurantFilter:filterOnName | restaurantTypeFilter: filterOnType">
+      <div class="content-wrap">
+        <h2>{{restaurant.name}}</h2>
+        <div>
+        <h2 class="cuisine">{{restaurant.cuisine}}</h2>
+        </div>
+        <div tabindex="0" [attr.aria-label]="restaurant.name + ' has a ' + restaurant.rating + ' star rating'" class="rating-wrap">
+          <div class="rating-wrap" *ngIf="restaurant.rating > 0">
+            <i class="rating-icon icon-star"></i>
+          </div>
+
+          <div class="rating-wrap" *ngIf="restaurant.rating < 1">
+            <i class="rating-icon icon-star-o"></i>
+          </div>
+
+          <div class="rating-wrap" *ngIf="restaurant.rating > 1">
+            <i class="rating-icon icon-star"></i>
+          </div>
+
+          <div class="rating-wrap" *ngIf="restaurant.rating < 2">
+            <i class="rating-icon icon-star-o"></i>
+          </div>
+
+          <div class="rating-wrap" *ngIf="restaurant.rating > 2">
+            <i class="rating-icon icon-star"></i>
+          </div>
+
+          <div class="rating-wrap" *ngIf="restaurant.rating < 3">
+            <i class="rating-icon icon-star-o"></i>
+          </div>
+
+
+          <div class="rating-wrap" *ngIf="restaurant.rating > 3">
+            <i class="rating-icon icon-star"></i>
+          </div>
+
+          <div class="rating-wrap" *ngIf="restaurant.rating < 4">
+            <i class="rating-icon icon-star-o"></i>
+          </div>
+
+          <div class="rating-wrap" *ngIf="restaurant.rating > 4">
+            <i class="rating-icon icon-star"></i>
+          </div>
+
+          <div class="rating-wrap" *ngIf="restaurant.rating < 5">
+            <i class="rating-icon icon-star-o"></i>
+          </div>
+        </div>
+        <div>
+        <a class="link" [attr.aria-label]="'Go to the page with the reviews of the restaurant'" [routerLink]="['/reviews', restaurant.id]"><i class="icon icon-heart"></i> Reviews </a>
+        </div>
+        <div class="description-wrap">
+        <i class="icon-left icon-newspaper-o"></i><p [attr.aria-label]="'description of the restaurant'">{{restaurant.description}}</p>
+        </div>
+        <i class="icon-left icon-map-marker"> </i><p [attr.aria-label]="'adress of the restaurant'"> {{restaurant.address}} {{restaurant.city}} </p>
+        <div>
+          <i class="icon-left icon-clock-o"></i> <p  [attr.aria-label]="'opening hours of the restaurant'">{{restaurant.operatingHours}} </p>
+        </div>
+        <a class="button" [attr.aria-label]="'Go to the page to create a review for ' + restaurant.name  " [routerLink]="['/create', restaurant.id]">
+          <i class="icon icon-edit"></i> Review this restaurant
+        </a>
+      </div>
+
+      <div class="title-wrap">
+        <img src={{restaurant.img}} title={{restaurant.imgTitle}} alt={{restaurant.imgAlt}}/>
+      </div>
+    </article>
+  </section>
+</main>
