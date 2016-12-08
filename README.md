@@ -21,5 +21,5 @@ npm run start
 
 To start a compiled production like version run (Note: building can take a while!)
 ```sh
-start-production
+npm run start-production
 ```
